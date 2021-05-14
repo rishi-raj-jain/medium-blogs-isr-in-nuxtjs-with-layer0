@@ -3,9 +3,17 @@
     class="bg-black flex flex-col items-center justify-center min-h-screen p-5 sm:p-2"
   >
     <span
-      class="absolute bottom-10 left-[50%] transform -translate-x-1/2 text-md text-gray-400"
+      class="absolute bottom-10 left-[50%] transform -translate-x-1/2 text-sm text-gray-400"
     >
-      By
+      <a
+        target="_blank"
+        rel="noopener"
+        class="underline"
+        href="https://github.com/rishi-raj-jain/medium-blogs-isr-in-nuxtjs-with-layer0"
+      >
+        GitHub</a
+      >
+      | By
       <a
         target="_blank"
         rel="noopener"
