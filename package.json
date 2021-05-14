@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "layer0:dev": "layer0 dev",
+    "layer0:build": "layer0 build",
+    "layer0:deploy": "layer0 deploy",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "name": "try",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nuxt/core": "^2.15.3"
+  },
+  "devDependencies": {
+    "@layer0/cli": "^3.7.0",
+    "@layer0/core": "^3.7.0",
+    "@layer0/devtools": "^3.7.0",
+    "@layer0/nuxt": "^3.7.0",
+    "@layer0/prefetch": "^3.7.0",
+    "@layer0/vue": "^3.7.0",
+    "@nuxtjs/tailwindcss": "^4.0.1",
+    "postcss": "^8.2.8",
+    "core-js": "^3.9.1",
+    "nuxt": "^2.15.3"
+  }
+}
