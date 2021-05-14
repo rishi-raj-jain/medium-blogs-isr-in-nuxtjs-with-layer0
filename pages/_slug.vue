@@ -91,8 +91,11 @@ export default {
     let resp = await fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${params.slug}`
     ).then((res) => res.json());
-    if (!resp || !resp.hasOwnProperty("items") || resp["items"].length <= 0) {
-      redirect("/error");
+    if (!resp) {
+      redirect("/someone/something");
+    }
+    if ((resp && !resp.hasOwnProperty("items")) || resp["items"].length <= 0) {
+      redirect(404, "/error");
     }
     loading = false;
     return {

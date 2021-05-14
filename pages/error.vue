@@ -17,7 +17,9 @@
       😄
     </span>
     <div class="flex flex-col max-w-[450px]">
-      <h1 class="font-bold text-white text-3xl md:text-5xl">Oops! 🙁</h1>
+      <h1 class="font-bold text-white text-3xl md:text-5xl">
+        Oops! Author Not Found 🙁
+      </h1>
       <div class="mt-5 w-full bg-[#ffffff50] h-[1px]" />
       <span class="text-gray-400 mt-5">
         Try
@@ -35,6 +37,7 @@
 
 <script>
 export default {
+  props: ["error"],
   head: {
     title:
       "404: The author could not be found | Medium Blogs [ISR in Nuxt.js with Layer0]",

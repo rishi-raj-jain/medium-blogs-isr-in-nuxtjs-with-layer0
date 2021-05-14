@@ -46,7 +46,7 @@
       <span class="text-gray-400 mt-5">
         Try
         <NuxtLink class="underline" to="/rishi-raj-jain"
-          >/rishi-raj-jain</NuxtLink
+          >rishi-raj-jain</NuxtLink
         >
       </span>
     </div>
