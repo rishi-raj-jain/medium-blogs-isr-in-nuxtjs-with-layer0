@@ -9,7 +9,7 @@
         target="_blank"
         rel="noopener"
         class="underline"
-        href="https://github.com/rishi-raj-jain/medium-blogs-isr-in-nuxtjs-with-layer0"
+        href="https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-with-layer0"
       >
         GitHub</a
       >
@@ -26,7 +26,7 @@
     </span>
     <div class="flex flex-col max-w-[450px]">
       <h1 class="font-bold text-white text-3xl md:text-5xl">
-        Medium Blogs [ISR in Nuxt.js with Layer0]
+        Static Medium [ISR in Nuxt.js with Layer0]
       </h1>
       <div class="relative flex items-center w-full">
         <input

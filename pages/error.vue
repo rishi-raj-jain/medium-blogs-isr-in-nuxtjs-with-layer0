@@ -9,7 +9,7 @@
         target="_blank"
         rel="noopener"
         class="underline"
-        href="https://github.com/rishi-raj-jain/medium-blogs-isr-in-nuxtjs-with-layer0"
+        href="https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-with-layer0"
       >
         GitHub</a
       >
@@ -48,7 +48,7 @@ export default {
   props: ["error"],
   head: {
     title:
-      "404: The author could not be found | Medium Blogs [ISR in Nuxt.js with Layer0]",
+      "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -57,21 +57,21 @@ export default {
         name: "title",
         property: "title",
         content:
-          "404: The author could not be found | Medium Blogs [ISR in Nuxt.js with Layer0]",
+          "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
       },
       {
         hid: "og:title",
         name: "og:title",
         property: "og:title",
         content:
-          "404: The author could not be found | Medium Blogs [ISR in Nuxt.js with Layer0]",
+          "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
       },
       {
         hid: "twitter:title",
         name: "twitter:title",
         property: "twitter:title",
         content:
-          "404: The author could not be found | Medium Blogs [ISR in Nuxt.js with Layer0]",
+          "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
       },
       {
         hid: "url",

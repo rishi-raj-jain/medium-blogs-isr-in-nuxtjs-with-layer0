@@ -9,7 +9,7 @@ module.exports = new Router()
     cache({
       edge: {
         maxAgeSeconds: 60 * 60 * 24 * 365, // keep the incrementally generated page for a year
-        staleWhileRevalidateSeconds: 60 * 60 // revalidate the data on page every hour
+        staleWhileRevalidateSeconds: 1 // revalidate the data on page every hour
       }
     });
   })
