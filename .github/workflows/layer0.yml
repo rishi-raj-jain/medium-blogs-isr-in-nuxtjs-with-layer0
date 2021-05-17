@@ -1,0 +1,61 @@
+# Add this file to your project at .github/workflows/layer0.yml
+#
+# This GitHub action deploys your site on Layer0.
+#
+# The site is deployed each time commits are pushed. The environment to which the changes are deployed
+# is based on the following rules:
+#
+# 1.) When pushing to master, changes deployed to the "staging" environment. This environment does not exist
+#     by default. You must create it using https://app.layer0.co.
+# 2.) When pushing to any other branch, changes are deployed to the default environment. A unique URL is created based on the branch and deployment number.
+# 3.) When you publish a release in GitHub, the associated tag will be deployed to the production
+#     environment. This environment does not exist by default, you must create it using https://app.layer0.co.
+#     Therefore, you can push to production by creating a GitHub release, or by using the "Promote to Environment"
+#     menu when viewing a deployment in https://app.layer0.co.
+#
+# In order for this action to deploy your site, you must create a deploy token from the site settings page
+# in https://app.layer0.co and configure it as a secret called "layer0_deploy_token" in your repo on GitHub.
+
+name: Deploy branch to Layer0
+
+on:
+  push:
+  release:
+    types: [published]
+
+jobs:
+  deploy-to-layer0:
+    # cancels the deployment for the automatic merge push created when tagging a release
+    if: contains(github.ref, 'refs/tags') == false || github.event_name == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Layer0 deploy token secret
+        if: env.layer0_deploy_token == ''
+        run: |
+          echo You must define the "layer0_deploy_token" secret in GitHub project settings
+          exit 1
+        env:
+          layer0_deploy_token: ${{secrets.layer0_deploy_token}}
+      - name: Extract branch name
+        shell: bash
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')" >> $GITHUB_ENV
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: npm ci
+      - name: Deploy to Layer0
+        run: npm run layer0:deploy -- ${{'--branch=$BRANCH_NAME' || ''}} --token=$layer0_deploy_token ${{github.event_name == 'push' && env.BRANCH_NAME == 'main' && '--environment=staging' || ''}} ${{github.event_name == 'release' && '--environment=production' || ''}}
+        env:
+          layer0_deploy_token: ${{secrets.layer0_deploy_token}}
