@@ -56,6 +56,6 @@ jobs:
             ${{ runner.os }}-
       - run: npm ci
       - name: Deploy to Layer0
-        run: npm run layer0:deploy -- ${{'--branch=$BRANCH_NAME' || ''}} --token=$layer0_deploy_token ${{github.event_name == 'push' && env.BRANCH_NAME == 'main' && '--environment=staging' || ''}} ${{github.event_name == 'release' && '--environment=production' || ''}}
+        run: npm run layer0:deploy -- ${{'--branch=$BRANCH_NAME' || ''}} --token=$layer0_deploy_token ${{github.event_name == 'push' && env.BRANCH_NAME == 'master' && '--environment=default' || ''}} ${{github.event_name == 'push' && env.BRANCH_NAME != 'master' && '--environment=staging' || ''}}
         env:
           layer0_deploy_token: ${{secrets.layer0_deploy_token}}
