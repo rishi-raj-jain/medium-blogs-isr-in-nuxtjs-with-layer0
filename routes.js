@@ -3,12 +3,12 @@ const { nuxtRoutes } = require("@layer0/nuxt");
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.layer0.co;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
-  font-src 'self';
+  font-src 'self' *.gstatic.com;
 `;
 
 module.exports = new Router()
