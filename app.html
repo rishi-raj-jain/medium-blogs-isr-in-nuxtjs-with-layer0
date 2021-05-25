@@ -25,14 +25,6 @@
 
 <body {{ BODY_ATTRS }}>
   {{ APP }}
-  <script defer>
-    function initXdnRum() {
-      new Layer0.Metrics({
-        token: '257a3a98-84a8-4ee3-9763-5441dfd751fb'
-      }).collect()
-    }
-  </script>
-  <script src="https://rum.layer0.co/latest.js" defer onload="initXdnRum()"></script>
 </body>
 
 </html>
