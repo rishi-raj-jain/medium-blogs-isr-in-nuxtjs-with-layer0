@@ -3,6 +3,9 @@ const path = require('path')
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  generate: {
+    fallback: 'fall.html'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
