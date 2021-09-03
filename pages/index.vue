@@ -35,7 +35,7 @@
           type="text"
           placeholder="Enter your medium handle"
         />
-        <NuxtLink class="border-none" :to="searchQuery">
+        <NuxtLink target="_blank" class="border-none" :to="searchQuery">
           <svg
             width="10"
             height="12"
