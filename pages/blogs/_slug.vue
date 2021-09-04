@@ -89,7 +89,7 @@ export default {
     }
   },
   async asyncData({ params, redirect }) {
-    let resp = await fetch(`http://localhost:3000/api/blogs/${params.slug}.json`).then((res) =>
+    let resp = await fetch(`https://rishi-raj-jain-try-general.layer0.link/api/blogs/${params.slug}.json`).then((res) =>
       res.json()
     )
     if (resp['code'] == 0) {

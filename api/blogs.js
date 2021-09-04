@@ -2,13 +2,13 @@ const { Router } = require('express')
 const https = require('https')
 const router = Router()
 
-const httpGet = url => {
+const httpGet = (url) => {
   return new Promise((resolve, reject) => {
     https
-      .get(url, res => {
+      .get(url, (res) => {
         res.setEncoding('utf8')
         let body = ''
-        res.on('data', chunk => (body += chunk))
+        res.on('data', (chunk) => (body += chunk))
         res.on('end', () => resolve(body))
       })
       .on('error', reject)
@@ -20,12 +20,13 @@ router.use('/blogs/:username.json', async (req, res) => {
   let resp = await httpGet(
     `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${slug}`
   )
-  console.log(resp)
+  resp = JSON.parse(resp)
+  console.log(resp['items'].length)
   if (!resp) {
     res.writeHead(404, { 'Content-Type': 'application/json' })
     res.end(
       JSON.stringify({
-        code: 0
+        code: 0,
       })
     )
   }
@@ -33,7 +34,7 @@ router.use('/blogs/:username.json', async (req, res) => {
   res.end(
     JSON.stringify({
       resp,
-      code: 1
+      code: 1,
     })
   )
 })
