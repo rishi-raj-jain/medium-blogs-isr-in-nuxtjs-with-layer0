@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="bg-black flex flex-col items-center justify-center min-h-screen p-5 sm:p-2"
-  >
-    <span
-      class="absolute bottom-10 left-[50%] transform -translate-x-1/2 text-md text-gray-400"
-    >
+  <div class="bg-black flex flex-col items-center justify-center min-h-screen p-5 sm:p-2">
+    <span class="absolute bottom-10 left-[50%] transform -translate-x-1/2 text-md text-gray-400">
       <a
         target="_blank"
         rel="noopener"
@@ -25,9 +21,7 @@
       😄
     </span>
     <div class="flex flex-col max-w-[450px]">
-      <h1 class="font-bold text-white text-3xl md:text-5xl">
-        Oops! Author Not Found 🙁
-      </h1>
+      <h1 class="font-bold text-white text-3xl md:text-5xl">Oops! Author Not Found 🙁</h1>
       <div class="mt-5 w-full bg-[#ffffff50] h-[1px]" />
       <span class="text-gray-400 mt-5">
         Try
@@ -35,9 +29,7 @@
       </span>
       <span class="text-gray-400 mt-5">
         Try
-        <NuxtLink class="underline" to="/rishi-raj-jain"
-          >/rishi-raj-jain</NuxtLink
-        >
+        <NuxtLink class="underline" to="/blogs/rishi-raj-jain">/rishi-raj-jain</NuxtLink>
       </span>
     </div>
   </div>
@@ -45,52 +37,48 @@
 
 <script>
 export default {
-  props: ["error"],
+  props: ['error'],
   head: {
-    title:
-      "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
+    title: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: "title",
-        name: "title",
-        property: "title",
-        content:
-          "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
+        hid: 'title',
+        name: 'title',
+        property: 'title',
+        content: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
       },
       {
-        hid: "og:title",
-        name: "og:title",
-        property: "og:title",
-        content:
-          "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
+        hid: 'og:title',
+        name: 'og:title',
+        property: 'og:title',
+        content: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
       },
       {
-        hid: "twitter:title",
-        name: "twitter:title",
-        property: "twitter:title",
-        content:
-          "404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]",
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        property: 'twitter:title',
+        content: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
       },
       {
-        hid: "url",
-        name: "url",
-        content: "https://rishi-raj-jain-try-default.layer0.link/error",
+        hid: 'url',
+        name: 'url',
+        content: 'https://rishi-raj-jain-try-default.layer0.link/error',
       },
       {
-        hid: "og:url",
-        name: "og:url",
-        property: "og:url",
-        content: "https://rishi-raj-jain-try-default.layer0.link/error",
+        hid: 'og:url',
+        name: 'og:url',
+        property: 'og:url',
+        content: 'https://rishi-raj-jain-try-default.layer0.link/error',
       },
       {
-        hid: "twitter:url",
-        name: "twitter:url",
-        property: "twitter:url",
-        content: "https://rishi-raj-jain-try-default.layer0.link/error",
+        hid: 'twitter:url',
+        name: 'twitter:url',
+        property: 'twitter:url',
+        content: 'https://rishi-raj-jain-try-default.layer0.link/error',
       },
     ],
   },
-};
+}
 </script>
