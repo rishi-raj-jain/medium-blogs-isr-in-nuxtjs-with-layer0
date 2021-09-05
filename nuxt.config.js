@@ -4,8 +4,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   generate: {
-    crawler: false,
-    fallback: 'fall/index.html'
+    crawler: false
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

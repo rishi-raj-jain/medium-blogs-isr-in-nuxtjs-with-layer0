@@ -43,7 +43,7 @@
           type="text"
           placeholder="Enter your medium handle"
         />
-        <NuxtLink target="_blank" class="border-none" :to="{ path: getPath(searchQuery) }">
+        <NuxtLink class="border-none" :to="{ path: getPath(searchQuery) }">
           <svg
             width="10"
             height="12"

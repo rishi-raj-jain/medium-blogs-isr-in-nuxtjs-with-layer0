@@ -20,13 +20,13 @@ module.exports = new Router()
       },
       browser: false
     })
-    serveStatic('dist/blogs/:username.html', {
-      // When the user requests a page that is not already statically rendered, fall back to SSR.
-      onNotFound: () => renderWithApp(),
+    // serveStatic('dist/blogs/:username.html', {
+    //   // When the user requests a page that is not already statically rendered, fall back to SSR.
+    //   onNotFound: () => renderWithApp(),
 
-      // While SSR is in progress, display a static loading page.
-      loadingPage: 'dist/fall/index.html'
-    })
+    //   // While SSR is in progress, display a static loading page.
+    //   loadingPage: 'dist/fall/index.html'
+    // })
   })
   .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {
     cache({
