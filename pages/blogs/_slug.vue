@@ -90,7 +90,7 @@ export default {
   },
   async asyncData({ params, redirect }) {
     let resp = await fetch(
-      `https://rishi-raj-jain-try-general-isg.layer0.link/api/blogs/${params.slug}.json`
+      `https://rishi-raj-jain-try-test-cache.layer0.link/api/blogs/${params.slug}.json`
     ).then((res) => res.json())
     if (resp['code'] == 0) {
       redirect(404, '/error')
