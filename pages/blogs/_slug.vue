@@ -22,12 +22,18 @@
       </span>
     </div>
   </div>
+  <LazyPlaceholder v-else>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      slug: '',
+      resp: null,
+    }
+  },
   head() {
-    console.log(this.resp)
     const title = this.resp?.feed?.title ?? 'In Progress'
     const description = this.resp?.items[0]?.title ?? 'In Progress'
     return {
@@ -88,16 +94,16 @@ export default {
       ],
     }
   },
-  async asyncData({ params, redirect }) {
-    let resp = await fetch(
-      `https://rishi-raj-jain-try-test-cache.layer0.link/api/blogs/${params.slug}.json`
-    ).then((res) => res.json())
-    if (resp['code'] == 0) {
-      redirect(404, '/error')
-    }
-    return {
-      resp: resp['resp'],
-      slug: params.slug,
+  async fetch() {
+    this.slug = this.$nuxt.context.params.slug
+    let resp = await fetch(`http://localhost:3000/api/blogs/${this.slug}.json`).then((res) => res.json())
+    if (resp['code'] == 0) this.$nuxt.redirect(404, '/error')
+    this.resp = resp['resp']
+    if (typeof window !== "undefined" && window.__client__ === true) {
+      window.__client__= false
+      console.log('Client Side Transition, Populating the cache...')
+      // cache the HTML on the edge (limitations of nuxt)
+      fetch(`http://localhost:3000/blogs/${this.slug}`)
     }
   },
 }
