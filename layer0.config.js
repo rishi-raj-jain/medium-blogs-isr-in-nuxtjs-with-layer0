@@ -7,4 +7,7 @@ module.exports = {
   backends: {},
   includeNodeModules: true,
   connector: '@layer0/nuxt',
+  includeFiles: {
+    api: true
+  }
 }
