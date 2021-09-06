@@ -13,7 +13,8 @@
   "private": true,
   "dependencies": {
     "@nuxt/core": "^2.15.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "rss-to-json": "^2.0.2"
   },
   "devDependencies": {
     "@layer0/cli": "^3.7.0",

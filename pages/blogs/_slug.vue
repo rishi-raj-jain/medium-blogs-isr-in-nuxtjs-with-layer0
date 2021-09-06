@@ -5,7 +5,7 @@
   >
     <div class="flex flex-col max-w-[450px]">
       <h1 class="font-bold text-white text-3xl md:text-5xl">
-        {{ resp.feed.title }}
+        {{ resp.title }}
       </h1>
       <li
         class="mt-5 list-none text-white"
@@ -34,8 +34,8 @@ export default {
     }
   },
   head() {
-    const title = this.resp?.feed?.title ?? 'In Progress'
-    const description = this.resp?.items[0]?.title ?? 'In Progress'
+    const title = this.resp ? this.resp.title : 'In Progress'
+    const description = this.resp ? this.resp.items[0].title : 'In Progress'
     return {
       title: title,
       meta: [
@@ -97,6 +97,7 @@ export default {
   async fetch() {
     this.slug = this.$nuxt.context.params.slug
     let resp = await fetch(`https://rishi-raj-jain-try-default.layer0.link/api/blogs/${this.slug}.json`).then((res) => res.json())
+    console.log(resp)
     if (resp['code'] == 0) this.$nuxt.redirect(404, '/error')
     this.resp = resp['resp']
     if (typeof window !== "undefined" && window.__client__ === true) {

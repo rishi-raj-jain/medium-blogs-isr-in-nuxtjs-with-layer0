@@ -1,3 +1,4 @@
+const { parse } = require('rss-to-json')
 const { Router } = require('express')
 const https = require('https')
 const router = Router()
@@ -17,7 +18,8 @@ const httpGet = (url) => {
 
 router.use('/blogs/:username.json', async (req, res) => {
   const slug = req.params.username
-  let resp = await httpGet(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${slug}`)
+  let rss = await parse(`https://medium.com/feed/@${slug}`)
+  let resp = JSON.stringify(rss, null, 3)
   if (!resp) {
     res.writeHead(404, { 'Content-Type': 'application/json' })
     res.end(
