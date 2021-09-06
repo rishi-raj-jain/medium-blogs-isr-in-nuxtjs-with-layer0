@@ -17,11 +17,7 @@ const httpGet = (url) => {
 
 router.use('/blogs/:username.json', async (req, res) => {
   const slug = req.params.username
-  let resp = await httpGet(
-    `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${slug}`
-  )
-  resp = JSON.parse(resp)
-  console.log(resp['items'].length)
+  let resp = await httpGet(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${slug}`)
   if (!resp) {
     res.writeHead(404, { 'Content-Type': 'application/json' })
     res.end(
@@ -30,6 +26,7 @@ router.use('/blogs/:username.json', async (req, res) => {
       })
     )
   }
+  resp = JSON.parse(resp)
   res.writeHead(200, { 'Content-Type': 'application/json' })
   res.end(
     JSON.stringify({
