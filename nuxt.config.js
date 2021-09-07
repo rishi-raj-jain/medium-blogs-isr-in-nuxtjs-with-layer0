@@ -4,7 +4,8 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   generate: {
-    crawler: false
+    crawler: false,
+    fallback: false
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -19,13 +20,13 @@ export default {
         hid: 'og:image',
         name: 'og:image',
         property: 'og:image',
-        content: 'http://localhost:3000/cover.png'
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/cover.png'
       },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
         property: 'twitter:image',
-        content: 'http://localhost:3000/cover.png'
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/cover.png'
       },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -64,25 +65,25 @@ export default {
         property: 'twitter:description',
         content: 'A demo showing off ISR in Nuxt.js with Layer0'
       },
-      { hid: 'url', name: 'url', content: 'http://localhost:3000/' },
+      { hid: 'url', name: 'url', content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/' },
       {
         hid: 'og:url',
         name: 'og:url',
         property: 'og:url',
-        content: 'http://localhost:3000/'
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/'
       },
       {
         hid: 'twitter:url',
         name: 'twitter:url',
         property: 'twitter:url',
-        content: 'http://localhost:3000/'
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/'
       }
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'http://localhost:3000/favicon.ico'
+        href: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/favicon.ico'
       }
     ]
   },

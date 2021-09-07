@@ -25,7 +25,7 @@ module.exports = new Router()
       onNotFound: () => renderWithApp(),
 
       // While SSR is in progress, display a static loading page.
-      loadingPage: 'dist/200.html',
+      // loadingPage: 'dist/200.html',
     })
   })
   .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {

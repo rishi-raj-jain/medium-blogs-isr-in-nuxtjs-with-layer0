@@ -64,19 +64,19 @@ export default {
       {
         hid: 'url',
         name: 'url',
-        content: 'http://localhost:3000/error',
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/error',
       },
       {
         hid: 'og:url',
         name: 'og:url',
         property: 'og:url',
-        content: 'http://localhost:3000/error',
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/error',
       },
       {
         hid: 'twitter:url',
         name: 'twitter:url',
         property: 'twitter:url',
-        content: 'http://localhost:3000/error',
+        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/error',
       },
     ],
   },

@@ -74,26 +74,26 @@ export default {
         {
           hid: 'url',
           name: 'url',
-          content: `http://localhost:3000/${this.slug}`,
+          content: `https://rishi-raj-jain-try-fallback-blocking.layer0.link/${this.slug}`,
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `http://localhost:3000/${this.slug}`,
+          content: `https://rishi-raj-jain-try-fallback-blocking.layer0.link/${this.slug}`,
         },
         {
           hid: 'twitter:url',
           name: 'twitter:url',
           property: 'twitter:url',
-          content: `http://localhost:3000/${this.slug}`,
+          content: `https://rishi-raj-jain-try-fallback-blocking.layer0.link/${this.slug}`,
         },
       ],
     }
   },
   async asyncData({ params, redirect }) {
     // this.slug = params.slug
-    let resp = await fetch(`http://localhost:3000/api/blogs/${params.slug}.json`).then((res) => res.json())
+    let resp = await fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`).then((res) => res.json())
     console.log(resp)
     if (resp['code'] == 0) redirect(404, '/error')
     // this.resp = resp['resp']
@@ -101,7 +101,7 @@ export default {
       window.__client__= false
       console.log('Client Side Transition, Populating the cache...')
       // cache the HTML on the edge (limitations of nuxt)
-      fetch(`http://localhost:3000/blogs/${params.slug}`)
+      fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/blogs/${params.slug}`)
     }
     return {
       resp: resp['resp'],
