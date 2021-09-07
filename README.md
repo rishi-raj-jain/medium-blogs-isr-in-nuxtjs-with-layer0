@@ -2,4 +2,4 @@
 A demo showing off ISR (Incremental Static Regeneration) in Nuxt.js with Layer0 & TailwindCSS
 
 ## Demo
-https://rishi-raj-jain-try-default.layer0.link/blogs/medium
+http://localhost:3000/blogs/medium

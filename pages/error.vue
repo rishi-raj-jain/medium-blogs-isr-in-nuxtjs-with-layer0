@@ -64,19 +64,19 @@ export default {
       {
         hid: 'url',
         name: 'url',
-        content: 'https://rishi-raj-jain-try-default.layer0.link/error',
+        content: 'http://localhost:3000/error',
       },
       {
         hid: 'og:url',
         name: 'og:url',
         property: 'og:url',
-        content: 'https://rishi-raj-jain-try-default.layer0.link/error',
+        content: 'http://localhost:3000/error',
       },
       {
         hid: 'twitter:url',
         name: 'twitter:url',
         property: 'twitter:url',
-        content: 'https://rishi-raj-jain-try-default.layer0.link/error',
+        content: 'http://localhost:3000/error',
       },
     ],
   },
