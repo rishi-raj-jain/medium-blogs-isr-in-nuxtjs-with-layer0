@@ -3,10 +3,6 @@ const { Router } = require('express')
 const https = require('https')
 const router = Router()
 
-function timeout(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 const httpGet = (url) => {
   return new Promise((resolve, reject) => {
     https
@@ -24,7 +20,6 @@ router.use('/blogs/:username.json', async (req, res) => {
   const slug = req.params.username
   let rss = await parse(`https://medium.com/feed/@${slug}`)
   let resp = JSON.stringify(rss, null, 3)
-  await timeout(1500)
   if (!resp) {
     res.writeHead(404, { 'Content-Type': 'application/json' })
     res.end(

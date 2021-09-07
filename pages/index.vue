@@ -68,7 +68,6 @@
 export default {
   methods: {
     getPath(searchQuery) {
-      if (typeof window !== "undefined") window.__client__ = true
       return `/blogs/${searchQuery}`
     },
   },

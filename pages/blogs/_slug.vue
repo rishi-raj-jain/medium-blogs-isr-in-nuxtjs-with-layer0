@@ -19,17 +19,10 @@
       </span>
     </div>
   </div>
-  <!-- <LazyPlaceholder v-else> -->
 </template>
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     slug: '',
-  //     resp: null,
-  //   }
-  // },
   head() {
     const title = this.resp ? this.resp.title : 'In Progress'
     const description = this.resp ? this.resp.items[0].title : 'In Progress'
@@ -92,17 +85,9 @@ export default {
     }
   },
   async asyncData({ params, redirect }) {
-    // this.slug = params.slug
     let resp = await fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`).then((res) => res.json())
     console.log(resp)
     if (resp['code'] == 0) redirect(404, '/error')
-    // this.resp = resp['resp']
-    if (typeof window !== "undefined" && window.__client__ === true) {
-      window.__client__= false
-      console.log('Client Side Transition, Populating the cache...')
-      // cache the HTML on the edge (limitations of nuxt)
-      fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/blogs/${params.slug}`)
-    }
     return {
       resp: resp['resp'],
       slug: params.slug
