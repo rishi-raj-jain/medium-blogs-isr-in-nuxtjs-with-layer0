@@ -23,6 +23,13 @@
 
 <script>
 export default {
+  mounted() {
+    if (typeof window !== 'undefined' && window.__client__ === true) {
+      window.__client__ = false
+      console.log('Client Side Transition, Populating the cache...')
+      fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/blogs/${this.slug}`)
+    }
+  },
   head() {
     const title = this.resp ? this.resp.title : 'In Progress'
     const description = this.resp ? this.resp.items[0].title : 'In Progress'
@@ -85,12 +92,14 @@ export default {
     }
   },
   async asyncData({ params, redirect }) {
-    let resp = await fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`).then((res) => res.json())
+    let resp = await fetch(
+      `https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`
+    ).then((res) => res.json())
     console.log(resp)
     if (resp['code'] == 0) redirect(404, '/error')
     return {
       resp: resp['resp'],
-      slug: params.slug
+      slug: params.slug,
     }
   },
 }
