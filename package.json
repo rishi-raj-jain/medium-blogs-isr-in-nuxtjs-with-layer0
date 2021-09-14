@@ -2,7 +2,8 @@
   "scripts": {
     "layer0:dev": "layer0 dev",
     "layer0:build": "layer0 build",
-    "layer0:deploy": "layer0 deploy --environment=fallback-blocking --skip-build",
+    "layer0:deploy": "layer0 deploy",
+    "layer0:deploy-fallback-blocking": "layer0 deploy --environment=fallback-blocking",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
