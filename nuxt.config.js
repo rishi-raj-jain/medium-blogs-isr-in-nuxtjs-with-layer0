@@ -129,5 +129,7 @@ export default {
 
   serverMiddleware: {
     '/api': '~/api'
-  }
+  },
+
+  loading: '~/components/loading.vue'
 }

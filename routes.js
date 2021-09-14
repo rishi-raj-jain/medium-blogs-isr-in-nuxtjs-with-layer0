@@ -22,10 +22,7 @@ module.exports = new Router()
     })
     serveStatic('dist/blogs/:username.html', {
       // When the user requests a page that is not already statically rendered, fall back to SSR.
-      onNotFound: () => renderWithApp(),
-
-      // While SSR is in progress, display a static loading page.
-      // loadingPage: 'dist/200.html',
+      onNotFound: () => renderWithApp()
     })
   })
   .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {

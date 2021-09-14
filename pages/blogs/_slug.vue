@@ -92,9 +92,7 @@ export default {
     }
   },
   async asyncData({ params, redirect }) {
-    let resp = await fetch(
-      `https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`
-    ).then((res) => res.json())
+    let resp = await fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`).then((res) => res.json())
     console.log(resp)
     if (resp['code'] == 0) redirect(404, '/error')
     return {
