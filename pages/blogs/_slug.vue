@@ -105,7 +105,7 @@ export default {
   },
   async asyncData({ params, redirect }) {
     let link = process.env.API_URL
-    if (!link && window) link = window.location.origin
+    if (typeof window !== 'undefined') link = window.location.origin
     let blogsData = await fetch(`${link}/api/blogs/${params.slug}.json`).then((res) => res.json())
     if (blogsData['code'] == 0) redirect(404, '/error')
     return {

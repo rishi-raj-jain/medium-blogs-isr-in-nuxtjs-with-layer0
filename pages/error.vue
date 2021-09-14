@@ -40,7 +40,7 @@ export default {
   props: ['error'],
   head() {
     let link = process.env.API_URL
-    if (!link && window) link = window.location.origin
+    if (typeof window !== 'undefined') link = window.location.origin
     return {
       title: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
       meta: [
