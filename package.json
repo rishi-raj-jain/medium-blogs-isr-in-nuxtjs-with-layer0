@@ -3,13 +3,12 @@
     "layer0:dev": "layer0 dev",
     "layer0:build": "layer0 build",
     "layer0:deploy": "layer0 deploy",
-    "layer0:deploy-fallback-blocking": "layer0 deploy --environment=fallback-blocking",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
-  "name": "try",
+  "name": "nuxt-isg",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
