@@ -1,4 +1,4 @@
-# Static Medium: [ISR in Nuxt.js with Layer0]
+# Static Medium: [ISG in Nuxt.js with Layer0]
 A demo showing off ISR (Incremental Static Regeneration) in Nuxt.js with Layer0 & TailwindCSS
 
 ## Demo

@@ -27,12 +27,12 @@ export default {
     if (typeof window !== 'undefined' && window.__client__ === true) {
       window.__client__ = false
       console.log('Client Side Transition, Populating the cache...')
-      fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/blogs/${this.slug}`)
+      fetch(`/blogs/${this.slug}`)
     }
   },
   head() {
-    const title = this.resp ? this.resp.title : 'In Progress'
-    const description = this.resp ? this.resp.items[0].title : 'In Progress'
+    const title = `${this.resp.title} | Static Medium [ISG in Nuxt.js with Layer0]`
+    const description = this.resp.items[0].title
     return {
       title: title,
       meta: [
@@ -74,30 +74,44 @@ export default {
         {
           hid: 'url',
           name: 'url',
-          content: `https://rishi-raj-jain-try-fallback-blocking.layer0.link/${this.slug}`,
+          content: `${this.link}/blogs/${this.slug}`,
         },
         {
           hid: 'og:url',
           name: 'og:url',
           property: 'og:url',
-          content: `https://rishi-raj-jain-try-fallback-blocking.layer0.link/${this.slug}`,
+          content: `${this.link}/blogs/${this.slug}`,
         },
         {
           hid: 'twitter:url',
           name: 'twitter:url',
           property: 'twitter:url',
-          content: `https://rishi-raj-jain-try-fallback-blocking.layer0.link/${this.slug}`,
+          content: `${this.link}/blogs/${this.slug}`,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content: `${this.link}/cover.png`,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          property: 'twitter:image',
+          content: `${this.link}/cover.png`,
         },
       ],
     }
   },
   async asyncData({ params, redirect }) {
-    let resp = await fetch(`https://rishi-raj-jain-try-fallback-blocking.layer0.link/api/blogs/${params.slug}.json`).then((res) => res.json())
-    console.log(resp)
-    if (resp['code'] == 0) redirect(404, '/error')
+    let link = process.env.API_URL
+    if (!link && window) link = window.location.origin
+    let blogsData = await fetch(`${link}/api/blogs/${params.slug}.json`).then((res) => res.json())
+    if (blogsData['code'] == 0) redirect(404, '/error')
     return {
-      resp: resp['resp'],
+      resp: blogsData['resp'],
       slug: params.slug,
+      link,
     }
   },
 }

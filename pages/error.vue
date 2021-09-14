@@ -38,47 +38,84 @@
 <script>
 export default {
   props: ['error'],
-  head: {
-    title: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'title',
-        name: 'title',
-        property: 'title',
-        content: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
-      },
-      {
-        hid: 'og:title',
-        name: 'og:title',
-        property: 'og:title',
-        content: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
-      },
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        property: 'twitter:title',
-        content: '404: The author could not be found | Static Medium [ISR in Nuxt.js with Layer0]',
-      },
-      {
-        hid: 'url',
-        name: 'url',
-        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/error',
-      },
-      {
-        hid: 'og:url',
-        name: 'og:url',
-        property: 'og:url',
-        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/error',
-      },
-      {
-        hid: 'twitter:url',
-        name: 'twitter:url',
-        property: 'twitter:url',
-        content: 'https://rishi-raj-jain-try-fallback-blocking.layer0.link/error',
-      },
-    ],
+  head() {
+    let link = process.env.API_URL
+    if (!link && window) link = window.location.origin
+    return {
+      title: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+      meta: [
+        {
+          hid: 'title',
+          name: 'title',
+          property: 'title',
+          content:
+            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content:
+            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          property: 'twitter:title',
+          content:
+            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'url',
+          name: 'url',
+          content: `${link}/error`,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: `${link}/error`,
+        },
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          property: 'twitter:url',
+          content: `${link}/error`,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content: `${link}/cover.png`,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          property: 'twitter:image',
+          content: `${link}/cover.png`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content:
+            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+      ],
+    }
   },
 }
 </script>

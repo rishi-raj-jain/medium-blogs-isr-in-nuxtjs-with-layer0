@@ -22,7 +22,7 @@
     </span>
     <div class="flex flex-col max-w-[450px]">
       <h1 class="font-bold text-white text-3xl md:text-5xl">
-        Static Medium [ISR in Nuxt.js with Layer0]
+        Static Medium [ISG in Nuxt.js with Layer0]
       </h1>
       <div class="relative flex items-center w-full">
         <input
@@ -75,6 +75,79 @@ export default {
   data() {
     return {
       searchQuery: '',
+    }
+  },
+  head() {
+    let link = process.env.API_URL
+    if (!link && window) link = window.location.origin
+    return {
+      title: 'Static Medium [ISG in Nuxt.js with Layer0]',
+      meta: [
+        {
+          hid: 'title',
+          name: 'title',
+          property: 'title',
+          content: 'Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Static Medium [ISG in Nuxt.js with Layer0]',
+        },
+        {
+          hid: 'url',
+          name: 'url',
+          content: link,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          property: 'og:url',
+          content: link
+        },
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          property: 'twitter:url',
+          content: link
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          property: 'og:image',
+          content: `${link}/cover.png`,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          property: 'twitter:image',
+          content: `${link}/cover.png`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'A demo showing off ISG in Nuxt.js with Layer0.',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content: 'A demo showing off ISG in Nuxt.js with Layer0.',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          property: 'twitter:description',
+          content: 'A demo showing off ISG in Nuxt.js with Layer0.',
+        },
+      ],
     }
   },
 }
