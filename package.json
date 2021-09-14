@@ -3,6 +3,7 @@
     "layer0:dev": "layer0 dev",
     "layer0:build": "layer0 build",
     "layer0:deploy": "layer0 deploy",
+    "deploy": "layer0 deploy",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
