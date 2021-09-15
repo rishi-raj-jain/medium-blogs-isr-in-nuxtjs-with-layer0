@@ -22,7 +22,7 @@ module.exports = new Router()
     })
     serveStatic('dist/blogs/:username.html', {
       // When the user requests a page that is not already statically rendered, fall back to SSR.
-      onNotFound: () => renderWithApp()
+      onNotFound: () => renderWithApp(),
     })
   })
   .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {
@@ -37,3 +37,6 @@ module.exports = new Router()
     })
   })
   .use(nuxtRoutes)
+  .fallback(({ redirect }) => {
+    return redirect('/error')
+  })

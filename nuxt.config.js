@@ -5,7 +5,11 @@ export default {
   target: 'static',
   generate: {
     crawler: false,
-    fallback: false
+    fallback: false,
+    exclude: [
+      '/',
+      '/error'
+    ]
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

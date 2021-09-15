@@ -29,7 +29,7 @@
       </span>
       <span class="text-gray-400 mt-5">
         Try
-        <NuxtLink class="underline" to="/blogs/rishi-raj-jain">/rishi-raj-jain</NuxtLink>
+        <NuxtLink class="underline" :to="{ path: getPath('rishi-raj-jain') }">/rishi-raj-jain</NuxtLink>
       </span>
     </div>
   </div>
@@ -38,6 +38,12 @@
 <script>
 export default {
   props: ['error'],
+  methods: {
+    getPath(searchQuery) {
+      if (typeof window !== 'undefined') window.__client__ = true
+      return `/blogs/${searchQuery}`
+    },
+  },
   head() {
     let link = process.env.API_URL
     if (typeof window !== 'undefined') link = window.location.origin
