@@ -2,6 +2,16 @@ const { Router } = require('@layer0/core/router')
 const { nuxtRoutes } = require('@layer0/nuxt')
 
 module.exports = new Router()
+  .get(
+    {
+      headers: {
+        host: /layer0.link|layer0-perma.link/,
+      },
+    },
+    ({ setResponseHeader }) => {
+      setResponseHeader('x-robots-tag', 'noindex')
+    }
+  )
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.nuxt/dist/client/service-worker.js')
   })
