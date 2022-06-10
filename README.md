@@ -2,10 +2,10 @@
 A demo showing off ISG (Incremental Static Generation) with Nuxt.js and Layer0
 
 ## Demo
-https://rishi-raj-jain-nuxt-isg-default.layer0.link/blogs/medium
+https://rishi-raj-jain-nuxt-isg-default.layer0-limelight.link/blogs/medium
 
 ## Try It Now
-[![Deploy with Layer0](https://a.storyblok.com/f/117912/x/e4e996094a/frame-1.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-with-layer0)
+[![Deploy with Layer0](https://docs.layer0.co/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-with-layer0)
 
 
 ## Getting Started
@@ -15,6 +15,7 @@ Use ```git clone https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-w
 
 ### Install dependencies
 On the command line, in the project root directory, run the following command:
+
 ```bash
 npm install
 ```
@@ -23,7 +24,7 @@ npm install
 Run the Nuxt.js app with the command:
 
 ```bash
-npm run layer0:dev
+npm run 0:dev
 ```
 Load the site: http://127.0.0.1:3000
 
@@ -31,7 +32,7 @@ Load the site: http://127.0.0.1:3000
 You can do a production build of your app and test it locally using:
 
 ```bash
-layer0 build && layer0 run --production
+npm run 0:build && npm run 0:prod
 ```
 Setting --production runs your app exactly as it will be uploaded to the Layer0 cloud using serverless-offline.
 
