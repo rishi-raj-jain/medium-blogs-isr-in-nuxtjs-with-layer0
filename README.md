@@ -40,6 +40,6 @@ Setting --production runs your app exactly as it will be uploaded to the Layer0 
 Deploying requires an account on Layer0. [Sign up here for free](https://app.layer0.co/signup). Once you have an account, you can deploy to Layer0 by running the following in the root folder of your project:
 
 ```bash
-layer0 deploy
+npm run 0:deploy
 ```
 See [deploying](https://docs.layer0.co/guides/deploying) for more information.
