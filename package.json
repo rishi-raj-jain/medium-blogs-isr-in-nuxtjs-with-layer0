@@ -1,14 +1,15 @@
 {
   "name": "nuxt-isg",
   "scripts": {
-    "layer0:dev": "layer0 dev",
-    "layer0:build": "layer0 build",
-    "layer0:deploy": "layer0 deploy",
-    "deploy": "layer0 deploy",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "0:dev": "layer0 dev",
+    "0:build": "layer0 build",
+    "0:deploy": "layer0 deploy",
+    "0:prod": "layer0 run --production",
+    "deploy": "layer0 deploy"
   },
   "dependencies": {
     "@nuxt/core": "^2.15.3",
