@@ -8,6 +8,6 @@ module.exports = {
   includeNodeModules: true,
   connector: '@layer0/nuxt',
   includeFiles: {
-    api: true
-  }
+    api: true,
+  },
 }

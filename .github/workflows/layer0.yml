@@ -2,6 +2,9 @@ name: Deploy to Layer0
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy-to-layer0:
@@ -12,7 +15,7 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm-proxy.fury.io/moovweb/
-      - run: npm ci
-      - run: npm run deploy -- --token=$LAYER0_DEPLOY_TOKEN
+      - run: npm i
+      - run: npm run 0:deploy -- --token=$LAYER0_DEPLOY_TOKEN
         env:
           LAYER0_DEPLOY_TOKEN: ${{secrets.LAYER0_DEPLOY_TOKEN}}

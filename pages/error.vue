@@ -1,23 +1,9 @@
 <template>
   <div class="bg-black flex flex-col items-center justify-center min-h-screen p-5 sm:p-2">
     <span class="absolute bottom-10 left-[50%] transform -translate-x-1/2 text-md text-gray-400">
-      <a
-        target="_blank"
-        rel="noopener"
-        class="underline"
-        href="https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-with-layer0"
-      >
-        GitHub</a
-      >
+      <a target="_blank" rel="noopener" class="underline" href="https://github.com/rishi-raj-jain/static-medium-isr-in-nuxtjs-with-layer0"> GitHub</a>
       | By
-      <a
-        target="_blank"
-        rel="noopener"
-        class="underline"
-        href="https://twitter.com/rishi_raj_jain_"
-      >
-        Rishi Raj Jain</a
-      >
+      <a target="_blank" rel="noopener" class="underline" href="https://twitter.com/rishi_raj_jain_"> Rishi Raj Jain</a>
       😄
     </span>
     <div class="flex flex-col max-w-[450px]">
@@ -54,22 +40,19 @@ export default {
           hid: 'title',
           name: 'title',
           property: 'title',
-          content:
-            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
         },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content:
-            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
           property: 'twitter:title',
-          content:
-            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
         },
         {
           hid: 'url',
@@ -103,22 +86,19 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content:
-            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content:
-            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
           property: 'twitter:description',
-          content:
-            '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
         },
       ],
     }

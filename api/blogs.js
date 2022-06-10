@@ -1,5 +1,6 @@
 const { parse } = require('rss-to-json')
 const { Router } = require('express')
+
 const router = Router()
 
 router.use('/blogs/:username.json', async (req, res) => {

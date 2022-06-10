@@ -4,11 +4,7 @@
       <h1 class="font-bold text-white text-3xl md:text-5xl">
         {{ resp.title }}
       </h1>
-      <li
-        class="mt-5 list-none text-white"
-        v-for="story of resp['items'].filter((item, index) => index <= 3)"
-        :key="story.link"
-      >
+      <li class="mt-5 list-none text-white" v-for="story of resp['items'].filter((item, index) => index <= 3)" :key="story.link">
         <a target="_blank" :href="story.link">
           <h2>&middot; {{ story.title }}</h2>
         </a>
@@ -103,9 +99,31 @@ export default {
       ],
     }
   },
-  async asyncData({ params, redirect }) {
-    let link = process.env.API_URL
-    if (typeof window !== 'undefined') link = window.location.origin
+  async asyncData({ req, params, redirect }) {
+    let link = undefined
+    // If in browser (i.e. on client side)
+    if (typeof window !== 'undefined') {
+      link = window.location.origin
+    }
+    // If on server side (either on Layer0 or on local)
+    else {
+      let hostURL = req ? req.headers.host : process.env.API_URL
+      // You have access to req.headers.host when running npm run dev
+      // You have access to process.env.API_URL on Layer0 env after deployment, but there is no req header
+      // Why's that? It's an added benefit of being on Layer0, as the project is compiled with target: 'static',
+      // Which removes the req object from asyncData in nuxt to produce a full static application.
+      // This rather is the beauty to ISG with Nuxt.js and Layer0, that you can combine full static site with
+      // server side capabilities
+      if (hostURL) {
+        hostURL = hostURL.replace('http://', '')
+        hostURL = hostURL.replace('https://', '')
+        if (hostURL.includes('localhost:')) {
+          link = `http://${hostURL}`
+        } else {
+          link = `https://${hostURL}`
+        }
+      }
+    }
     let blogsData = await fetch(`${link}/api/blogs/${params.slug}.json`).then((res) => res.json())
     if (blogsData['code'] == 0) redirect(404, '/error')
     return {

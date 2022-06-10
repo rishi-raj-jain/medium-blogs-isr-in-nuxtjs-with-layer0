@@ -9,7 +9,8 @@
     "0:build": "layer0 build",
     "0:deploy": "layer0 deploy",
     "0:prod": "layer0 run --production",
-    "deploy": "layer0 deploy"
+    "deploy": "layer0 deploy",
+    "format": "prettier --write '**/*' --ignore-unknown"
   },
   "dependencies": {
     "@nuxt/core": "^2.15.3",

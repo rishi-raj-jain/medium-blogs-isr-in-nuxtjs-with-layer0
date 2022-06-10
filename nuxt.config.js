@@ -6,17 +6,14 @@ export default {
   generate: {
     crawler: false,
     fallback: false,
-    exclude: [
-      '/',
-      '/error'
-    ]
+    exclude: ['/', '/error'],
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Static Medium [ISG in Nuxt.js with Layer0]',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
@@ -27,9 +24,9 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'https://nuxtjs.org/favicon.ico'
-      }
-    ]
+        href: 'https://nuxtjs.org/favicon.ico',
+      },
+    ],
   },
 
   tailwindcss: {
@@ -40,13 +37,13 @@ export default {
         content: [
           path.join(__dirname, './pages/**/*.vue'),
           path.join(__dirname, './layouts/**/*.vue'),
-          path.join(__dirname, './components/**/*.vue')
+          path.join(__dirname, './components/**/*.vue'),
         ],
         options: {
-          whitelist: ['html', 'body', 'nuxt-progress']
-        }
-      }
-    }
+          whitelist: ['html', 'body', 'nuxt-progress'],
+        },
+      },
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -62,7 +59,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    ['@layer0/nuxt/module', { layer0SourceMaps: true }]
+    ['@layer0/nuxt/module', { layer0SourceMaps: true }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -72,8 +69,8 @@ export default {
   build: {},
 
   serverMiddleware: {
-    '/api': '~/api'
+    '/api': '~/api',
   },
 
-  loading: '~/components/loading.vue'
+  loading: '~/components/loading.vue',
 }
