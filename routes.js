@@ -1,5 +1,6 @@
 const { Router } = require('@layer0/core/router')
 const { nuxtRoutes } = require('@layer0/nuxt')
+const IF_PRODUCTION = process.env.NODE_ENV === 'production'
 
 module.exports = new Router()
   .get(
@@ -30,10 +31,12 @@ module.exports = new Router()
       },
       browser: false,
     })
-    serveStatic('dist/blogs/:username.html', {
-      // When the user requests a page that is not already statically rendered, fall back to SSR.
-      onNotFound: () => renderWithApp(),
-    })
+    if (IF_PRODUCTION)
+      serveStatic('dist/blogs/:username.html', {
+        // When the user requests a page that is not already statically rendered, fall back to SSR.
+        onNotFound: () => renderWithApp(),
+      })
+    else renderWithApp()
   })
   .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {
     cache({
@@ -41,10 +44,12 @@ module.exports = new Router()
         maxAgeSeconds: 60 * 60 * 24, // cache at the edge for 24 hours
       },
     })
-    serveStatic('dist/blogs/:username.json', {
-      // When the user requests data that is not already statically rendered, fall back to SSR.
-      onNotFound: () => renderWithApp(),
-    })
+    if (IF_PRODUCTION)
+      serveStatic('dist/blogs/:username.json', {
+        // When the user requests data that is not already statically rendered, fall back to SSR.
+        onNotFound: () => renderWithApp(),
+      })
+    else renderWithApp()
   })
   .use(nuxtRoutes)
   .fallback(({ redirect }) => {
