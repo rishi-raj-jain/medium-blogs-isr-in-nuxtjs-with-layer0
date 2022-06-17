@@ -55,20 +55,8 @@ module.exports = new Router()
       })
     else renderWithApp()
   })
-  .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {
-    cache({
-      edge: {
-        maxAgeSeconds: 60,
-        staleWhileRevalidateSeconds: 60, // serve stale responses for a minute until new content is fetched, in background a new request is looking for new content
-      },
-      browser: false,
-    })
-    if (IF_PRODUCTION)
-      serveStatic('dist/blogs/:username.json', {
-        // When the user requests data that is not already statically rendered, fall back to SSR.
-        onNotFound: () => renderWithApp(),
-      })
-    else renderWithApp()
+  .get('/api/blogs/:username.json', ({ renderWithApp }) => {
+    renderWithApp()
   })
   .use(nuxtRoutes)
   .fallback(({ redirect }) => {
