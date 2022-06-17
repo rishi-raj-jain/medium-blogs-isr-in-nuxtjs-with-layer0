@@ -7,7 +7,7 @@
       😄
     </span>
     <div class="flex flex-col max-w-[450px]">
-      <h1 class="font-bold text-white text-3xl md:text-5xl">Static Medium [ISG in Nuxt.js with Layer0]</h1>
+      <h1 class="font-bold text-white text-3xl md:text-5xl">Static Medium [ISR in Nuxt.js with Layer0]</h1>
       <div class="relative flex items-center w-full">
         <input
           v-model="searchQuery"
