@@ -5,11 +5,10 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "0:dev": "layer0 dev",
-    "0:build": "layer0 build",
-    "0:deploy": "layer0 deploy",
+    "0:dev": "node generate_BUILD_ID.js && layer0 dev",
+    "0:build": "node generate_BUILD_ID.js && layer0 build",
+    "0:deploy": "node generate_BUILD_ID.js && layer0 deploy",
     "0:prod": "layer0 run --production",
-    "deploy": "layer0 deploy",
     "format": "prettier --write '**/*' --ignore-unknown"
   },
   "dependencies": {

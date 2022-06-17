@@ -1,4 +1,5 @@
 const path = require('path')
+const { BUILD_ID } = require('./BUILD_ID')
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -7,7 +8,9 @@ export default {
     crawler: false,
     fallback: false,
     exclude: ['/', '/error'],
-    manifest: false
+    staticAssets: {
+      version: BUILD_ID,
+    },
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

@@ -9,5 +9,6 @@ module.exports = {
   connector: '@layer0/nuxt',
   includeFiles: {
     api: true,
+    'BUILD_ID.js': true
   },
 }

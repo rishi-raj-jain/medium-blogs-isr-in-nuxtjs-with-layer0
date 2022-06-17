@@ -1,5 +1,6 @@
-const { Router } = require('@layer0/core/router')
+const { BUILD_ID } = require('./BUILD_ID')
 const { nuxtRoutes } = require('@layer0/nuxt')
+const { Router } = require('@layer0/core/router')
 const IF_PRODUCTION = process.env.NODE_ENV === 'production'
 
 module.exports = new Router()
@@ -15,6 +16,14 @@ module.exports = new Router()
   )
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.nuxt/dist/client/service-worker.js')
+  })
+  .match('/manifest.js', ({ serveStatic }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+      },
+    })
+    serveStatic(`dist/_nuxt/static/${BUILD_ID}/manifest.js`)
   })
   .get('/', ({ cache }) => {
     cache({
