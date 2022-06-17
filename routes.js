@@ -17,7 +17,7 @@ module.exports = new Router()
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.nuxt/dist/client/service-worker.js')
   })
-  .match('/manifest.js', ({ serveStatic }) => {
+  .match('/manifest.js', ({ cache, serveStatic }) => {
     cache({
       edge: {
         maxAgeSeconds: 60 * 60 * 24 * 365,
