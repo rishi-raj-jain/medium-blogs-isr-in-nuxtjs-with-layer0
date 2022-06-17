@@ -25,6 +25,14 @@ module.exports = new Router()
     })
     serveStatic(`dist/_nuxt/static/${BUILD_ID}/manifest.js`)
   })
+  .match('/:path*/manifest.js', ({ cache, serveStatic }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+      },
+    })
+    serveStatic(`dist/_nuxt/static/${BUILD_ID}/manifest.js`)
+  })
   .get('/', ({ cache }) => {
     cache({
       edge: {
@@ -35,8 +43,8 @@ module.exports = new Router()
   .get('/blogs/:username', ({ serveStatic, cache, renderWithApp }) => {
     cache({
       edge: {
-        maxAgeSeconds: 60 * 60 * 24 * 365, // keep the incrementally generated page for a year
-        staleWhileRevalidateSeconds: 1, // revalidate the data on page every second
+        maxAgeSeconds: 60,
+        staleWhileRevalidateSeconds: 60, // serve stale responses for a minute until new content is fetched, in background a new request is looking for new content
       },
       browser: false,
     })
@@ -50,8 +58,10 @@ module.exports = new Router()
   .get('/api/blogs/:username.json', ({ serveStatic, cache, renderWithApp }) => {
     cache({
       edge: {
-        maxAgeSeconds: 60 * 60 * 24, // cache at the edge for 24 hours
+        maxAgeSeconds: 60,
+        staleWhileRevalidateSeconds: 60, // serve stale responses for a minute until new content is fetched, in background a new request is looking for new content
       },
+      browser: false,
     })
     if (IF_PRODUCTION)
       serveStatic('dist/blogs/:username.json', {

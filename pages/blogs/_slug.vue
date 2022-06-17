@@ -10,6 +10,9 @@
         </a>
       </li>
       <span class="text-gray-400 mt-5">
+        Page generated at: {{ resp.random }}
+      </span>
+      <span class="text-gray-400 mt-5">
         &larr; Back to
         <NuxtLink class="underline" to="/">home</NuxtLink>
       </span>
