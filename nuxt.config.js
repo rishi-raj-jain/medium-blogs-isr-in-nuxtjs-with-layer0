@@ -7,6 +7,7 @@ export default {
     crawler: false,
     fallback: false,
     exclude: ['/', '/error'],
+    manifest: false
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
