@@ -48,12 +48,13 @@ module.exports = new Router()
       },
       browser: false,
     })
-    if (IF_PRODUCTION)
-      serveStatic('dist/blogs/:username.html', {
-        // When the user requests a page that is not already statically rendered, fall back to SSR.
-        onNotFound: () => renderWithApp(),
-      })
-    else renderWithApp()
+    //     if (IF_PRODUCTION)
+    //       serveStatic('dist/blogs/:username.html', {
+    //         // When the user requests a page that is not already statically rendered, fall back to SSR.
+    //         onNotFound: () => renderWithApp(),
+    //       })
+    //     else renderWithApp()
+    renderWithApp()
   })
   .get('/api/blogs/:username.json', ({ renderWithApp }) => {
     renderWithApp()
