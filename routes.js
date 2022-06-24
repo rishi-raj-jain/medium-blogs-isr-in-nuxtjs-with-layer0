@@ -43,17 +43,17 @@ module.exports = new Router()
   .get('/blogs/:username', ({ serveStatic, cache, renderWithApp }) => {
     cache({
       edge: {
-        maxAgeSeconds: 60,
+        maxAgeSeconds: 2,
         staleWhileRevalidateSeconds: 60, // serve stale responses for a minute until new content is fetched, in background a new request is looking for new content
       },
       browser: false,
     })
-    //     if (IF_PRODUCTION)
-    //       serveStatic('dist/blogs/:username.html', {
-    //         // When the user requests a page that is not already statically rendered, fall back to SSR.
-    //         onNotFound: () => renderWithApp(),
-    //       })
-    //     else renderWithApp()
+    // if (IF_PRODUCTION)
+    //   serveStatic('dist/blogs/:username.html', {
+    //     // When the user requests a page that is not already statically rendered, fall back to SSR.
+    //     onNotFound: () => renderWithApp(),
+    //   })
+    // else renderWithApp()
     renderWithApp()
   })
   .get('/api/blogs/:username.json', ({ renderWithApp }) => {
