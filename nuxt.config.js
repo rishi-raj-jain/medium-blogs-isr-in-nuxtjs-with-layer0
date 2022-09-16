@@ -4,10 +4,13 @@ const { BUILD_ID } = require('./BUILD_ID')
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  // Turn pre-rendering off
   generate: {
     crawler: false,
     fallback: false,
     exclude: ['/', '/error'],
+    // Attach ID to the static assets for serving fresh sources between deploys
     staticAssets: {
       version: BUILD_ID,
     },
@@ -33,25 +36,8 @@ export default {
     ],
   },
 
-  tailwindcss: {
-    jit: true,
-    config: {
-      purge: {
-        enabled: true,
-        content: [
-          path.join(__dirname, './pages/**/*.vue'),
-          path.join(__dirname, './layouts/**/*.vue'),
-          path.join(__dirname, './components/**/*.vue'),
-        ],
-        options: {
-          whitelist: ['html', 'body', 'nuxt-progress'],
-        },
-      },
-    },
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -60,17 +46,20 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
-    ['@layer0/nuxt/module', { layer0SourceMaps: true }],
-  ],
+  buildModules: ['@nuxt/postcss8', ['@layer0/nuxt/module', { layer0SourceMaps: true }]],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
 
   serverMiddleware: {
     '/api': '~/api',

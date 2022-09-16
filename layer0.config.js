@@ -4,11 +4,10 @@
 // You should commit this file to source control.
 
 module.exports = {
-  backends: {},
-  includeNodeModules: true,
   connector: '@layer0/nuxt',
   includeFiles: {
     api: true,
-    'BUILD_ID.js': true
+    'BUILD_ID.js': true,
+    ...require('./getNodeModules'),
   },
 }

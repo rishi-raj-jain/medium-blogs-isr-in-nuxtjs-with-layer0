@@ -21,7 +21,7 @@ router.use('/blogs/:username.json', async (req, res) => {
     }
     resp = JSON.parse(resp)
     // Generate the time of the response to verify ISR
-    resp['random']= new Date().getTime().toString()
+    resp['random'] = new Date().getTime().toString()
     res.writeHead(200, { 'Content-Type': 'application/json' })
     res.end(
       JSON.stringify({

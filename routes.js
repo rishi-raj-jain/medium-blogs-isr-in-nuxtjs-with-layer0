@@ -1,19 +1,10 @@
 const { BUILD_ID } = require('./BUILD_ID')
 const { nuxtRoutes } = require('@layer0/nuxt')
 const { Router } = require('@layer0/core/router')
-const IF_PRODUCTION = process.env.NODE_ENV === 'production'
+// const IF_PRODUCTION = process.env.NODE_ENV === 'production'
 
 module.exports = new Router()
-  .get(
-    {
-      headers: {
-        host: /layer0.link|layer0-perma.link/,
-      },
-    },
-    ({ setResponseHeader }) => {
-      setResponseHeader('x-robots-tag', 'noindex')
-    }
-  )
+  .noIndexPermalink()
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.nuxt/dist/client/service-worker.js')
   })
@@ -40,7 +31,7 @@ module.exports = new Router()
       },
     })
   })
-  .get('/blogs/:username', ({ serveStatic, cache, renderWithApp }) => {
+  .get('/blogs/:username', ({ /* serveStatic, */ cache, renderWithApp }) => {
     cache({
       edge: {
         maxAgeSeconds: 2,
