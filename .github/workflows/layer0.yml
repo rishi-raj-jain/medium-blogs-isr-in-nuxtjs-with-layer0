@@ -21,7 +21,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Caching package dependencies
-        id: cache
         uses: actions/cache@v3
         env:
           cache-name: cache-node-modules-v2
@@ -36,7 +35,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        run: npm install
+      - run: npm install
       
       - name: Deploy to nuxt-isg site
       - run: npm run layer0:deploy -- --token=$LAYER0_DEPLOY_TOKEN
