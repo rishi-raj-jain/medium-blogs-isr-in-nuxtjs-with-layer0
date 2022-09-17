@@ -35,7 +35,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - run: npm install
+      - run: npm install --no-audit
 
       - run: npm run layer0:deploy -- --token=$LAYER0_DEPLOY_TOKEN
         env:
