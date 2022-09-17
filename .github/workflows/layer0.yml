@@ -13,17 +13,32 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
 
-      - run: yarn --prefer-offline
+      - name: Caching node_modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - run: npm install
+
       - run: npm run layer0:deploy -- --token=$LAYER0_DEPLOY_TOKEN
         env:
           LAYER0_DEPLOY_TOKEN: ${{ secrets.LAYER0_DEPLOY_TOKEN }}
+
       - run: npm run layer0:deploy -- --skip-build --site=nuxt-isr --token=$LAYER0_DEPLOY_TOKEN_1
         env:
           LAYER0_DEPLOY_TOKEN_1: ${{secrets.LAYER0_DEPLOY_TOKEN_1}}
