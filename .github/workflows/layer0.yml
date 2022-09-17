@@ -34,15 +34,12 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install dependencies
       - run: npm install
       
-      - name: Deploy to nuxt-isg site
       - run: npm run layer0:deploy -- --token=$LAYER0_DEPLOY_TOKEN
         env:
           LAYER0_DEPLOY_TOKEN: ${{ secrets.LAYER0_DEPLOY_TOKEN }}
 
-      - name: Deploy to nuxt-isr site
       - run: npm run layer0:deploy -- --skip-build --site=nuxt-isr --token=$LAYER0_DEPLOY_TOKEN_1
         env:
           LAYER0_DEPLOY_TOKEN_1: ${{secrets.LAYER0_DEPLOY_TOKEN_1}}
