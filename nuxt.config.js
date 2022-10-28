@@ -18,7 +18,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Static Medium [ISG in Nuxt.js with Layer0]',
+    title: 'Static Medium [ISG in Nuxt.js with Edgio]',
     htmlAttrs: {
       lang: 'en',
     },
@@ -46,7 +46,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ['@nuxt/postcss8', ['@layer0/nuxt/module', { layer0SourceMaps: true }]],
+  buildModules: ['@nuxt/postcss8', ['@edgio/nuxt/module', { edgioSourceMaps: false }]],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],

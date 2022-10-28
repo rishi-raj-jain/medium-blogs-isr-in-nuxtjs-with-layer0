@@ -41,7 +41,7 @@ export default {
     }
   },
   head() {
-    const title = `${this.data.title} | Static Medium [ISG in Nuxt.js with Layer0]`
+    const title = `${this.data.title} | Static Medium [ISG in Nuxt.js with Edgio]`
     const description = this.data.items && this.data.items.length > 0 ? this.data.items[0].title : ''
     return {
       title: title,
@@ -120,14 +120,14 @@ export default {
     if (typeof window !== 'undefined') {
       link = window.location.origin
     }
-    // If on server side (either on Layer0 or on local)
+    // If on server side (either on Edgio or on local)
     else {
       let hostURL = req ? req.headers.host : process.env.API_URL
       // You have access to req.headers.host when running npm run dev
-      // You have access to process.env.API_URL on Layer0 env after deployment, but there is no req header
-      // Why's that? It's an added benefit of being on Layer0, as the project is compiled with target: 'static',
+      // You have access to process.env.API_URL on Edgio env after deployment, but there is no req header
+      // Why's that? It's an added benefit of being on Edgio, as the project is compiled with target: 'static',
       // Which removes the req object from asyncData in nuxt to produce a full static application.
-      // This rather is the beauty to ISG with Nuxt.js and Layer0, that you can combine full static site with
+      // This rather is the beauty to ISG with Nuxt.js and Edgio, that you can combine full static site with
       // server side capabilities
       if (hostURL) {
         hostURL = hostURL.replace('http://', '')

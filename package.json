@@ -5,10 +5,10 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "layer0:dev": "node generate_BUILD_ID.js && node setNodeModules.js && layer0 dev",
-    "layer0:build": "node generate_BUILD_ID.js && node setNodeModules.js && layer0 build",
-    "layer0:deploy": "node generate_BUILD_ID.js && node setNodeModules.js && layer0 deploy",
-    "layer0:production": "layer0 run --production",
+    "edgio:dev": "node generate_BUILD_ID.js && node setNodeModules.js && edgio dev",
+    "edgio:build": "node generate_BUILD_ID.js && node setNodeModules.js && edgio build",
+    "edgio:deploy": "node generate_BUILD_ID.js && node setNodeModules.js && edgio deploy",
+    "edgio:production": "edgio run --production",
     "format": "prettier --write '**/*' --ignore-unknown"
   },
   "dependencies": {
@@ -17,12 +17,12 @@
     "rss-to-json": "^2.0.2"
   },
   "devDependencies": {
-    "@layer0/cli": "^4.18.9",
-    "@layer0/core": "^4.18.9",
-    "@layer0/devtools": "^4.18.9",
-    "@layer0/nuxt": "^4.18.9",
-    "@layer0/prefetch": "^4.18.9",
-    "@layer0/vue": "^4.18.9",
+    "@edgio/cli": "^5.0.3",
+    "@edgio/core": "^5.0.3",
+    "@edgio/devtools": "^5.0.3",
+    "@edgio/nuxt": "^5.0.3",
+    "@edgio/prefetch": "^5.0.3",
+    "@edgio/vue": "^5.0.3",
     "@nuxt/postcss8": "^1.1.3",
     "@vercel/nft": "^0.22.1",
     "autoprefixer": "^10.4.11",

@@ -1,6 +1,6 @@
 const { BUILD_ID } = require('./BUILD_ID')
-const { nuxtRoutes } = require('@layer0/nuxt')
-const { Router } = require('@layer0/core/router')
+const { nuxtRoutes } = require('@edgio/nuxt')
+const { Router } = require('@edgio/core/router')
 // const IF_PRODUCTION = process.env.NODE_ENV === 'production'
 
 module.exports = new Router()

@@ -34,25 +34,25 @@ export default {
     let link = process.env.API_URL
     if (typeof window !== 'undefined') link = window.location.origin
     return {
-      title: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+      title: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
       meta: [
         {
           hid: 'title',
           name: 'title',
           property: 'title',
-          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
           property: 'twitter:title',
-          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'url',
@@ -86,19 +86,19 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
           property: 'twitter:description',
-          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Layer0]',
+          content: '404: The author could not be found | Static Medium [ISG in Nuxt.js with Edgio]',
         },
       ],
     }

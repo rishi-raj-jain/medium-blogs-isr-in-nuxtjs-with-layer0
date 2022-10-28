@@ -7,7 +7,7 @@
       😄
     </span>
     <div class="flex flex-col max-w-[450px]">
-      <h1 class="font-bold text-white text-3xl md:text-5xl">Static Medium [ISR in Nuxt.js with Layer0]</h1>
+      <h1 class="font-bold text-white text-3xl md:text-5xl">Static Medium [ISR in Nuxt.js with Edgio]</h1>
       <div class="relative flex items-center w-full">
         <input
           v-model="searchQuery"
@@ -46,25 +46,25 @@ export default {
     let link = process.env.API_URL
     if (typeof window !== 'undefined') link = window.location.origin
     return {
-      title: 'Static Medium [ISG in Nuxt.js with Layer0]',
+      title: 'Static Medium [ISG in Nuxt.js with Edgio]',
       meta: [
         {
           hid: 'title',
           name: 'title',
           property: 'title',
-          content: 'Static Medium [ISG in Nuxt.js with Layer0]',
+          content: 'Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: 'Static Medium [ISG in Nuxt.js with Layer0]',
+          content: 'Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
           property: 'twitter:title',
-          content: 'Static Medium [ISG in Nuxt.js with Layer0]',
+          content: 'Static Medium [ISG in Nuxt.js with Edgio]',
         },
         {
           hid: 'url',
@@ -98,19 +98,19 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'A demo showing off ISG in Nuxt.js with Layer0.',
+          content: 'A demo showing off ISG in Nuxt.js with Edgio.',
         },
         {
           hid: 'og:description',
           name: 'og:description',
           property: 'og:description',
-          content: 'A demo showing off ISG in Nuxt.js with Layer0.',
+          content: 'A demo showing off ISG in Nuxt.js with Edgio.',
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
           property: 'twitter:description',
-          content: 'A demo showing off ISG in Nuxt.js with Layer0.',
+          content: 'A demo showing off ISG in Nuxt.js with Edgio.',
         },
       ],
     }
